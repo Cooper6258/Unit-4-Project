@@ -48,7 +48,7 @@ class Main {
           System.out.println(nstr + str.substring(str.length()-len+1));
           nstr = "";
         }
-daw
+
         while (a1.equals("replace")){
           System.out.println("What would you like to replace?");
           String replace = a.nextLine().toLowerCase();
@@ -66,14 +66,46 @@ daw
             nstr2 += str.substring(e, e+1);
           }
         }
+          
           System.out.println(nstr2 + str.substring(str.length()-len2+1));
           System.out.println("What would you like to replace " + replace + " with");
           String a3 = a.nextLine().toLowerCase();
           nstr2 = "";
-          nstr2 += a3;
-          System.out.println(nstr2 + str.substring(str.length()-len2+1));
 
-      }
+          System.out.println("Would you like to replace one of them or all of them?");
+          String a4 = a.nextLine().toLowerCase();
+          if (a4.equals("all")){
+            for (int f = 0; f <= str.length()-len2; f++){
+              
+              if (str.substring(f, f +len2).equals(replace)){
+                nstr2 += ANSI_YELLOW + a3 + ANSI_RESET;
+                f = len2 + f-1 ;
+                
+            }
+
+            else{
+              nstr2 += str.substring(f, f+1);
+            }
+          }
+          System.out.println(nstr2 + str.substring(str.length()-len2+1));
+    }
+        else if (a4.equals("one")){
+          boolean rep = false;
+          for (int f = 0; f <= str.length()-len2; f++){
+                
+                if (rep==false&&str.substring(f, f +len2).equals(replace)){
+                  nstr2 += ANSI_YELLOW + a3 + ANSI_RESET;
+                  f = len2 + f-1 ;
+                  rep = true;
+              }
+
+              else{
+                nstr2 += str.substring(f, f+1);
+              }
+            }
+            System.out.println(nstr2 + str.substring(str.length()-len2+1));
+        }
+    }
     }
     else{
 
@@ -82,7 +114,7 @@ daw
     }
 
     }
-
+  
  
 
   
